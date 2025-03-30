@@ -3,6 +3,10 @@
 
 	//double err;
 
+  #ifdef __cplusplus
+    extern "C" {
+  #endif
+
 	void exactinit ( void );
 	double orient2d      ( double* pa, double* pb, double* pc );
 	double orient2dfast  ( double* pa, double* pb, double* pc );
@@ -27,5 +31,9 @@
 	void doubleprint ( double number );
 
 	double getfpuprecision ( void );
+
+  #ifdef __cplusplus
+  }
+  #endif
 
 #endif // __CGCPREDICATES_H__
