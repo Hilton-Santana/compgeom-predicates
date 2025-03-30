@@ -1,29 +1,31 @@
-#pragma once
-#ifndef LIBIGL_PREDICATES
-#define LIBIGL_PREDICATES
+#ifndef __CGCPREDICATES_H__
+#define __CGCPREDICATES_H__
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+	//double err;
 
-void exactinit();
+	void exactinit ( void );
+	double orient2d      ( double* pa, double* pb, double* pc );
+	double orient2dfast  ( double* pa, double* pb, double* pc );
+	double orient2dexact ( double* pa, double* pb, double* pc );
+	double orient2dslow  ( double* pa, double* pb, double* pc );
 
-#ifdef LIBIGL_PREDICATES_USE_FLOAT
-typedef float IGL_PREDICATES_REAL;
-float orient2d(float pa[2], float pb[2], float pc[2]);
-float orient3d(float pa[3], float pb[3], float pc[3], float pd[3]);
-float incircle(float pa[2], float pb[2], float pc[2], float pd[2]);
-float insphere(float pa[3], float pb[3], float pc[3], float pd[3], float pe[3]);
-#else
-typedef double IGL_PREDICATES_REAL;
-double orient2d(double pa[2], double pb[2], double pc[2]);
-double orient3d(double pa[3], double pb[3], double pc[3], double pd[3]);
-double incircle(double pa[2], double pb[2], double pc[2], double pd[2]);
-double insphere(double pa[3], double pb[3], double pc[3], double pd[3], double pe[3]);
-#endif
+	double orient3d      ( double* pa, double* pb, double* pc, double* pd );
+	double orient3dfast  ( double* pa, double* pb, double* pc, double* pd );
+	double orient3dexact ( double* pa, double* pb, double* pc, double* pd );
+	double orient3dslow  ( double* pa, double* pb, double* pc, double* pd );
 
-#ifdef __cplusplus
-}
-#endif
+	double incircle      ( double* pa, double* pb, double* pc, double* pd );
+	double incirclefast  ( double* pa, double* pb, double* pc, double* pd );
+	double incircleexact ( double* pa, double* pb, double* pc, double* pd );
+	double incircleslow  ( double* pa, double* pb, double* pc, double* pd );
 
-#endif
+	double insphere      ( double* pa, double* pb, double* pc, double* pd, double* pe );
+	double inspherefast  ( double* pa, double* pb, double* pc, double* pd, double* pe );
+	double insphereexact ( double* pa, double* pb, double* pc, double* pd, double* pe );
+	double insphereslow  ( double* pa, double* pb, double* pc, double* pd, double* pe );
+
+	void doubleprint ( double number );
+
+	double getfpuprecision ( void );
+
+#endif // __CGCPREDICATES_H__
