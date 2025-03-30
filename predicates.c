@@ -1454,7 +1454,7 @@ REAL *pc;
   return acx * bcy - acy * bcx;
 }
 
-static REAL orient2dexact(pa, pb, pc)
+REAL orient2dexact(pa, pb, pc)
 REAL *pa;
 REAL *pb;
 REAL *pc;
